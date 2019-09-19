@@ -29,6 +29,12 @@ contract Multisend is WhitelistAdminRole {
     WhitelistAdminRole()
     public
     {
+        etherFeed = msg.sender;
+        tokenFeed = msg.sender;
+        ethSendFeeNumerator = 22;
+        ethSendFeeDenominator = 100;
+        tokenSendFeeNumerator = 22;
+        tokenSendFeeDenominator = 100;
     }
 
 

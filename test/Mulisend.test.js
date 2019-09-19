@@ -35,7 +35,23 @@ contract('Multisend', accounts => {
 
     it('should split money', async function() {
         const _amount= new BN("200000");
+        const prebalanceDest = await web3.eth.getBalance(_dest)
+        const prebalanceEthFee = await web3.eth.getBalance(_ethFee)
+        
+
         const  logsSend = await this._mutisend.bulkSendEth(_dest, { value: _amount, from: _user });
+
+        const postbalanceDest = await web3.eth.getBalance(_dest)
+        const postbalanceEthFee = await web3.eth.getBalance(_ethFee)
+
+        console.log(prebalanceDest)
+        console.log(postbalanceDest)
+
+
+        console.log(prebalanceEthFee)
+        console.log(postbalanceEthFee)
+
+
         const _dem = await this._mutisend.ethSendFeeDenominator();
         const _num = await this._mutisend.ethSendFeeNumerator();
         
