@@ -1,5 +1,5 @@
 
-const Multisend = artifacts.require("Multisend");
+const Multisend = artifacts.require("./Multisend.sol");
 
 module.exports = function(deployer) {
      

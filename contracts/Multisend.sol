@@ -8,7 +8,7 @@ import "../node_modules/openzeppelin-solidity/contracts/access/roles/WhitelistAd
 
 
 
-contract BulkSend is WhitelistAdminRole {
+contract Multisend is WhitelistAdminRole {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
