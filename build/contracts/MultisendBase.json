@@ -3243,9 +3243,77 @@
     "name": "solc",
     "version": "0.5.11+commit.c082d0b4.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "3": {
+      "events": {
+        "0xbc15fb78520278ee17cd7d1ae4441b966432f23f5feb02e8c1d6846c91cfe376": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "source",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "dest",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "feedAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "BulkSendEth",
+          "type": "event",
+          "signature": "0xbc15fb78520278ee17cd7d1ae4441b966432f23f5feb02e8c1d6846c91cfe376"
+        },
+        "0x22380c05984257a1cb900161c713dd71d39e74820f1aea43bd3f1bdd20961299": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "WhitelistAdminAdded",
+          "type": "event",
+          "signature": "0x22380c05984257a1cb900161c713dd71d39e74820f1aea43bd3f1bdd20961299"
+        },
+        "0x0a8eb35e5ca14b3d6f28e4abf2f128dbab231a58b56e89beb5d636115001e165": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "WhitelistAdminRemoved",
+          "type": "event",
+          "signature": "0x0a8eb35e5ca14b3d6f28e4abf2f128dbab231a58b56e89beb5d636115001e165"
+        }
+      },
+      "links": {},
+      "address": "0xC71c3B38F7FcdDC3154cB71eB79B63a5319260ef",
+      "transactionHash": "0xd390cda6e9bce157cc12026bf643b98b45d7e3e9acb534e34b6e4d176e2fc655"
+    }
+  },
   "schemaVersion": "3.0.16",
-  "updatedAt": "2019-09-19T21:28:11.801Z",
+  "updatedAt": "2019-09-19T21:36:48.117Z",
   "devdoc": {
     "methods": {}
   },
