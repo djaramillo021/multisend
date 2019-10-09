@@ -1,8 +1,8 @@
 
-const MultisendBase = artifacts.require("./MultisendBase.sol");
+const MultisendBase2 = artifacts.require("./MultisendBase2.sol");
 
 module.exports = function(deployer) {
      
-  deployer.deploy(MultisendBase);
+  deployer.deploy(MultisendBase2);
 
 };

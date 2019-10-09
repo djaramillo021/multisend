@@ -12,32 +12,32 @@ contract MultisendBase is WhitelistAdminRole {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
-    address payable public etherFeed;
+    address payable public etherFee;
 
     constructor()
     WhitelistAdminRole()
     public
     {
-        etherFeed = msg.sender;
+        etherFee = msg.sender;
     }
 
 
-    event BulkSendEth(address indexed source, address indexed dest, uint256 amount, uint256 feedAmount);
+    event BulkSendEth(address indexed source, address indexed dest,address etherFee, uint256 amount, uint256 feeAmount);
 
-    function bulkSendEth(address payable dest,uint256 destAmount,uint256 feedAmount) public payable {
+    function bulkSendEth(address payable dest,uint256 destAmount,uint256 feeAmount) public payable {
 
         require(dest != address(0),"address dest must exit");
         require(destAmount > 0, "destAmount must be positive");
-        require(feedAmount > 0, "_pamount must be positive");
+        require(feeAmount > 0, "_pamount must be positive");
 
         dest.transfer(destAmount * 1 wei);
-        etherFeed.transfer(feedAmount * 1 wei);
-        emit BulkSendEth(msg.sender,dest,destAmount,feedAmount);
+        etherFee.transfer(feeAmount * 1 wei);
+        emit BulkSendEth(msg.sender,dest,etherFee,destAmount,feeAmount);
     }
 
 
-    function setEthFeeAddress(address payable _etherFeed) public onlyWhitelistAdmin {
-        etherFeed = _etherFeed;
+    function setEthFeeAddress(address payable _etherFee) public onlyWhitelistAdmin {
+        etherFee = _etherFee;
     }
 
     function destroy (address payable _to) public onlyWhitelistAdmin {
