@@ -1,5 +1,7 @@
-pragma solidity ^0.5.10;
 
+
+
+pragma solidity ^0.5.10;
 
 import "../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
 
@@ -7,26 +9,31 @@ import "../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 
 
+library SafeTransfer {
+
+
+    function safeTransfer(address payable _address,uint256 amount)  internal{
+        // This forwards all available gas. Be sure to check the return value!
+        (bool success, ) = _address.call.value(amount)("");
+        require(success, "Transfer failed.");
+    }
+}
+
+
 contract MultisendBase2 {
+    using SafeTransfer for address payable;
     using SafeMath for uint256;
-
-
-
-
-
-
-
-    event BulkSendEth(address indexed source, address indexed dest,address etherFee, uint256 amount, uint256 feeAmount);
 
     function bulkSendEth(address payable dest,address payable etherFee,uint256 destAmount,uint256 feeAmount) public payable {
 
-        require(dest != address(0),"address dest must exit");
-        require(destAmount > 0, "destAmount must be positive");
-        require(feeAmount > 0, "_pamount must be positive");
+        require(dest != address(0),"Destination address must exist");
+        require(destAmount > 0, "Destination amount must be positive");
+        require(feeAmount > 0, "Fee amount must be positive");
+        require(destAmount.add(feeAmount) == msg.value,"There are not enough funds");
 
-        dest.transfer(destAmount * 1 wei);
-        etherFee.transfer(feeAmount * 1 wei);
-        emit BulkSendEth(msg.sender,dest,etherFee,destAmount,feeAmount);
+        dest.safeTransfer(destAmount * 1 wei);
+        etherFee.safeTransfer(feeAmount * 1 wei);
+
     }
 
 
