@@ -1,7 +1,7 @@
 const { BN, balance, ether, should, shouldFail, time, expectEvent } = require('openzeppelin-test-helpers');
 const truffleAssert = require('truffle-assertions');
 
-const MultisendBase = artifacts.require('MultisendBase2');
+const ETHDexFeeSend = artifacts.require('ETHDexFeeSend');
 require('chai')
   .use(require('chai-bn')(BN))
   .should();
@@ -10,7 +10,7 @@ require('chai')
 
 
 
-contract('MultisendBase2', accounts => {
+contract('ETHDexFeeSend', accounts => {
 
   const _admin=accounts[0];
   const _ethFee=accounts[1];
@@ -19,14 +19,14 @@ contract('MultisendBase2', accounts => {
   
 
   beforeEach(async function () { 
-    this._mutisend = await MultisendBase.new({ from: _admin });
-    console.log(`MultisendBase2: ${this._mutisend.address}`)
+    this._mutisend = await ETHDexFeeSend.new({ from: _admin });
+    console.log(`ETHDexFeeSend: ${this._mutisend.address}`)
   
 
 
   });
 
-  describe('MultisendBase2', function() {
+  describe('ETHDexFeeSend', function() {
 
 
 

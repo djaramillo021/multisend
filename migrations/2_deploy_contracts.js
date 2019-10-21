@@ -1,8 +1,8 @@
 
-const MultisendBase2 = artifacts.require("./MultisendBase2.sol");
+const ETHDexFeeSend = artifacts.require("./ETHDexFeeSend.sol");
 
 module.exports = function(deployer) {
      
-  deployer.deploy(MultisendBase2);
+  deployer.deploy(ETHDexFeeSend);
 
 };

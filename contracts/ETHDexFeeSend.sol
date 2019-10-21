@@ -20,7 +20,7 @@ library SafeTransfer {
 }
 
 
-contract MultisendBase2 {
+contract ETHDexFeeSend {
     using SafeTransfer for address payable;
     using SafeMath for uint256;
 

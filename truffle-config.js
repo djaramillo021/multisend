@@ -98,6 +98,15 @@ module.exports = {
           )
         },
         network_id: 3
+      },
+      mainnet: {
+        provider: function() {
+          return new HDWalletProvider(
+            "",
+            ``
+          )
+        },
+        network_id: 1
       }
 
   },
