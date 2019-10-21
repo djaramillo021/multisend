@@ -28,3 +28,13 @@ truffle --network mainnet  migrate --reset
 
 *You need to set  truffle-config.js to use the mainnet and rospten networks
 
+
+Example 
+```
+//mnemonic-> "XX FDD XX cheap XX DD coffee XX FF DD FF boat" 
+        
+        return new HDWalletProvider(
+            "XX FDD XX cheap XX DD coffee XX FF DD FF boat",
+            `https://XXX.infura.io/v3/XXX`
+          )
+```
